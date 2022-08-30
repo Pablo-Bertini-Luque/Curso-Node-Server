@@ -4,6 +4,7 @@ import { router } from "../routes/usuarios.js";
 import { dbConnection } from "../database/config.js";
 import { routerAuth } from "../routes/auth.js";
 import { routerCategorias } from "../routes/categorias.js";
+import { routerProductos } from "../routes/productos.js";
 const app = express();
 
 class Server {
@@ -16,6 +17,7 @@ class Server {
       auth: "/api/auth",
       categorias: "/api/categorias",
       usuarios: "/api/usuarios",
+      productos: "/api/productos",
     };
     this.conectarDB();
   }
@@ -37,6 +39,7 @@ class Server {
     this.app.use("/api/usuarios", router);
     this.app.use("/api/auth", routerAuth);
     this.app.use("/api/categorias", routerCategorias);
+    this.app.use("/api/productos", routerProductos);
   }
 
   listen() {
