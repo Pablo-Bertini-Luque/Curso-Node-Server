@@ -5,6 +5,7 @@ import { dbConnection } from "../database/config.js";
 import { routerAuth } from "../routes/auth.js";
 import { routerCategorias } from "../routes/categorias.js";
 import { routerProductos } from "../routes/productos.js";
+import { routerBuscar } from "../routes/buscar.js";
 const app = express();
 
 class Server {
@@ -15,6 +16,7 @@ class Server {
     this.routes();
     this.paths = {
       auth: "/api/auth",
+      buscar: "/api/buscar",
       categorias: "/api/categorias",
       usuarios: "/api/usuarios",
       productos: "/api/productos",
@@ -40,6 +42,7 @@ class Server {
     this.app.use("/api/auth", routerAuth);
     this.app.use("/api/categorias", routerCategorias);
     this.app.use("/api/productos", routerProductos);
+    this.app.use("/api/buscar", routerBuscar);
   }
 
   listen() {
